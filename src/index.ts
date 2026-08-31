@@ -1,3 +1,3 @@
-const message: string = "Hello, ballot!";
+const message: string = "12";
 
 console.log(message);
