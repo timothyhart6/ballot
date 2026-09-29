@@ -43,7 +43,7 @@ accounts or writes. So this is a **build-time pipeline, not a running service**:
 
 Static hosting, no server to operate. Do not introduce Express, a database, or an API
 layer without discussing it first — the absence of those is a deliberate decision, not
-an oversight.
+an oversight. A database and API may come later; see "Later" under Roadmap.
 
 ### Two tiers of data
 
@@ -97,6 +97,45 @@ The site presents candidates factually and evenhandedly. It records what candida
 said, how they have voted, who has endorsed them, and who funds them. It does not rank,
 score, or recommend. Every substantive claim about a candidate carries a source link, and
 where sources conflict, the site says so rather than picking a winner.
+
+## Roadmap
+
+**MVP:** a hosted static site listing every candidate on this ballot, easy to read.
+Candidate data is hardcoded for now. Which fields beyond name, party, and office make
+the MVP is still undecided.
+
+1. **Data model (TDD)** — a `Candidate` type and grouping candidates by race, tested,
+   before any React. Model races as belonging to districts, and a ballot as the set of
+   districts a voter is in — not as a flat list of "my candidates" — so the per-voter
+   lookup below plugs in later without a rewrite.
+2. **React + Vite** — render races and candidates on a plain page.
+3. **Layout and readability** — grouping, dropdowns, spacing.
+4. **Deploy** to static hosting, after the districts are confirmed against the official
+   sample ballot.
+5. **Pipeline** — replace hardcoded data with government CSVs converted to JSON at build
+   time, starting with Franklin County. The aim is to scale to other counties.
+
+**Later:** Tim wants other counties, and possibly other projects, to be able to use
+this data. Static JSON files at predictable URLs (e.g. `/data/oh/franklin/2026-11-03.json`)
+serve that as a read-only API. A real database and API server are on the table only if
+static files stop being enough (e.g. cross-county search, data that changes faster than
+rebuilds). Revisit after step 5; do not build ahead of it.
+
+**Later: per-voter ballots.** The MVP covers only Tim's ballot. Serving anyone else means
+determining their exact ballot, and sharing a federal district is not enough — state and
+local races differ within it. The key is the **precinct**, or more precisely the
+**ballot style** (the exact set of contests; a precinct split by a district line has more
+than one). The polling location is *not* a key: one location often serves several
+precincts with different ballots. The lookup is address → precinct / ballot style →
+races → candidates. Federal and state districts are the easy part (the Census geocoder
+covers them); local boundaries come from each county's Board of Elections, with no single
+national source. Which public APIs cover this is unresearched — verify, don't assume.
+Do the address lookup in the visitor's browser so no address is ever sent to or stored by
+this project.
+
+Frontend principle, since Tim expects to redesign the page as he learns front end: keep
+data, components, and styling separate. Components take typed data as input and never
+know where it came from; layout and sizing live in CSS, not component logic.
 
 ## Commands
 
