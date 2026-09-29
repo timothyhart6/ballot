@@ -105,8 +105,9 @@ npm run dev        # tsx src/index.ts — runs directly, NO type checking
 npm run typecheck  # tsc --noEmit — the actual type check
 npm run build      # tsc -p tsconfig.build.json — emits to dist/, excluding tests
 npm start          # node dist/index.js
-  npm test           # vitest run — runs the test suite once
+npm test           # vitest run — runs the test suite once
 npm run test:watch # vitest — re-runs tests on file save
+npm run check      # typecheck, then tests only if types pass
 ```
 
 Vitest, like tsx, strips types without checking them. A passing test run says nothing
