@@ -103,13 +103,30 @@ where sources conflict, the site says so rather than picking a winner.
 ```
 npm run dev        # tsx src/index.ts — runs directly, NO type checking
 npm run typecheck  # tsc --noEmit — the actual type check
-npm run build      # tsc — emits to dist/
+npm run build      # tsc -p tsconfig.build.json — emits to dist/, excluding tests
 npm start          # node dist/index.js
+  npm test           # vitest run — runs the test suite once
+npm run test:watch # vitest — re-runs tests on file save
 ```
+
+Vitest, like tsx, strips types without checking them. A passing test run says nothing
+about type errors; run `npm run typecheck` too.
 
 **`npm run dev` does not type-check.** tsx strips types and runs the JavaScript; code with
 real type errors will execute happily. Run `npm run typecheck` before believing anything
 works. Do not report a change as verified on the basis of `npm run dev` alone.
+
+## Test-driven development
+
+This project is developed test-first. Follow red → green → refactor:
+
+1. **Red** — write one small failing test for the next behavior. Run it and see it fail.
+2. **Green** — write the simplest code that makes it pass.
+3. **Refactor** — clean up with all tests passing.
+
+Do not write production code without a failing test that calls for it. Keep each cycle
+small; one cycle is a good unit for explaining new TypeScript to Tim. "Green" means both
+`npm test` and `npm run typecheck` pass.
 
 ## Conventions
 
