@@ -1,6 +1,7 @@
 {
   "name": "ballot",
   "version": "0.1.0",
+  "private": true,
   "description": "Personal ballot guide for Franklin County, Ohio",
   "type": "module",
   "scripts": {
