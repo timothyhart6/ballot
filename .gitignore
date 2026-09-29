@@ -4,3 +4,5 @@ dist/
 .env.local
 .idea/
 *.log
+# Personal info (voter address, precinct) — never commit
+CLAUDE.local.md
