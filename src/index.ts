@@ -1,4 +1,4 @@
-import type { Candidate } from "./ballot.js";
+import { buildBallot, type Candidate, type Issue } from "./ballot.js";
 
 const candidates: Candidate[] = [
   { name: "Joyce Beatty", office: "US House District 3" },
@@ -55,4 +55,32 @@ const candidates: Candidate[] = [
   { name: "Eric Terford", office: "County Commissioner" },
 ];
 
-console.log(candidates);
+// Text from the Franklin County Board of Elections certified questions and issues list.
+const issues: Issue[] = [
+  {
+    number: "3",
+    title: "General Assembly Initiated Constitutional Amendment",
+    description: "To Require Voters to Present Photo Identification in Order to Vote",
+  },
+  {
+    number: "8",
+    title: "Columbus – Proposed Charter Amendment (by petition)",
+    description:
+      "This proposed amendment would limit the ability to vote for candidates for Columbus City Council " +
+      "to only those electors living within the districts that those candidates seek to represent.",
+  },
+  {
+    number: "9",
+    title: "Columbus – Proposed Charter Amendment (by Council)",
+    description:
+      "This proposed amendment would limit the ability to vote for candidates for Columbus City Council " +
+      "to only those electors living within the districts that those candidates seek to represent. " +
+      "The amendment adds two (2) at-large council representatives to be elected in 2027, and an additional " +
+      "two (2) at-large council representatives to be elected in 2029. All at-large council representatives " +
+      "will be elected for four (4) year terms. The amendment includes provisions for transitioning from the " +
+      "current nine (9) member Council to an eleven (11) member Council and then subsequently to a thirteen " +
+      "(13) member Council, allowing for the ongoing staggering of terms.",
+  },
+];
+
+console.log(JSON.stringify(buildBallot(candidates, issues), null, 2));
