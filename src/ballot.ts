@@ -20,3 +20,19 @@ export function groupByRace(candidates: Candidate[]): Race[] {
   }
   return races;
 }
+
+export type Issue = {
+  // A string, not a number: local issues are numbered like "10A".
+  number: string;
+  title: string;
+  description: string;
+};
+
+export type Ballot = {
+  races: Race[];
+  issues: Issue[];
+};
+
+export function buildBallot(candidates: Candidate[], issues: Issue[]): Ballot {
+  return { races: groupByRace(candidates), issues };
+}
