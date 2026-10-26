@@ -1,8 +1,9 @@
-type Party = "Democratic" | "Republican" | "Libertarian";
+type Party = "Democratic" | "Republican" | "Libertarian" | "Independent";
 
 interface Candidate {
   name: string;
-  party: Party;
+  // null: the ballot shows no party label (Ohio Common Pleas judges).
+  party: Party | null;
   office: string;
 }
 
@@ -33,6 +34,7 @@ const candidates: Candidate[] = [
 
   { name: "Sherrod Brown", party: "Democratic", office: "US Senator" },
   { name: "Jon Husted", party: "Republican", office: "US Senator" },
+  { name: "Greg Levy", party: "Independent", office: "US Senator" },
   { name: "William B. Redpath", party: "Libertarian", office: "US Senator" },
 
   { name: "Daniel R. Hawkins", party: "Republican", office: "Ohio Supreme Court Justice (term commencing 1/1/2027)" },
@@ -43,16 +45,16 @@ const candidates: Candidate[] = [
   { name: "Michael C. Mentel", party: "Democratic", office: "Judge, 10th District Court of Appeals (term commencing 2/9/2027)" },
   { name: "Terri Jamison", party: "Democratic", office: "Judge, 10th District Court of Appeals (term commencing 7/1/2027)" },
 
-  { name: "Carl Aveni", party: "Democratic", office: "Judge, Common Pleas Court - General Division (term commencing 1/1/2027)" },
-  { name: "Andy Miller", party: "Democratic", office: "Judge, Common Pleas Court - General Division (term commencing 2/9/2027)" },
-  { name: "David Young", party: "Democratic", office: "Judge, Common Pleas Court - General Division (term commencing 7/1/2027)" },
-  { name: "Chris Brown", party: "Democratic", office: "Judge, Common Pleas Court - General Division (term commencing 7/2/2027)" },
+  { name: "Carl Aveni", party: null, office: "Judge, Common Pleas Court - General Division (term commencing 1/1/2027)" },
+  { name: "Andy Miller", party: null, office: "Judge, Common Pleas Court - General Division (term commencing 2/9/2027)" },
+  { name: "David Young", party: null, office: "Judge, Common Pleas Court - General Division (term commencing 7/1/2027)" },
+  { name: "Chris Brown", party: null, office: "Judge, Common Pleas Court - General Division (term commencing 7/2/2027)" },
 
-  { name: "Kelley Gabrielle Boller", party: "Democratic", office: "Judge, Common Pleas Court - Domestic Relations Division (term commencing 1/2/2027)" },
-  { name: "Lasheyl N. Stroud", party: "Democratic", office: "Judge, Common Pleas Court - Domestic Relations Division (term commencing 1/3/2027)" },
+  { name: "Kelley Gabrielle Boller", party: null, office: "Judge, Common Pleas Court - Domestic Relations Division (term commencing 1/2/2027)" },
+  { name: "Lasheyl N. Stroud", party: null, office: "Judge, Common Pleas Court - Domestic Relations Division (term commencing 1/3/2027)" },
 
-  { name: "Kelly Green", party: "Democratic", office: "Judge, Common Pleas Court - Probate" },
-  { name: "Chris Junga", party: "Republican", office: "Judge, Common Pleas Court - Probate" },
+  { name: "Kelly Green", party: null, office: "Judge, Common Pleas Court - Probate (term commencing 2/9/2027)" },
+  { name: "Chris Junga", party: null, office: "Judge, Common Pleas Court - Probate (term commencing 2/9/2027)" },
 
   { name: "Michael Stinziano", party: "Democratic", office: "County Auditor" },
 
