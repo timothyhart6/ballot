@@ -18,6 +18,16 @@ describe("groupByRace", () => {
   test("returns no races when there are no candidates", () => {
     expect(groupByRace([])).toEqual([]);
   });
+
+  test("orders races by where their office first appears, not alphabetically", () => {
+    const husted: Candidate = { name: "Jon Husted", office: "US Senator" };
+    const faber: Candidate = { name: "Keith Faber", office: "Attorney General" };
+    const brown: Candidate = { name: "Sherrod Brown", office: "US Senator" };
+
+    const races = groupByRace([husted, faber, brown]);
+
+    expect(races.map((r) => r.office)).toEqual(["US Senator", "Attorney General"]);
+  });
 });
 
 describe("buildBallot", () => {
