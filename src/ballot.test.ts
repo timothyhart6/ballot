@@ -58,4 +58,12 @@ describe("buildBallot", () => {
       issues: [photoId],
     });
   });
+
+  test("has an empty issue list when the ballot has no issues", () => {
+    const beatty: Candidate = { name: "Joyce Beatty", office: "US House District 3" };
+
+    const ballot = buildBallot([beatty], []);
+
+    expect(ballot.issues).toEqual([]);
+  });
 });
