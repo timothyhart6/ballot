@@ -66,4 +66,16 @@ describe("buildBallot", () => {
 
     expect(ballot.issues).toEqual([]);
   });
+
+  test("has an empty race list when the ballot has no candidates", () => {
+    const photoId: Issue = {
+      number: "3",
+      title: "Proposed Constitutional Amendment",
+      description: "To require voters to present photo identification in order to vote",
+    };
+
+    const ballot = buildBallot([], [photoId]);
+
+    expect(ballot.races).toEqual([]);
+  });
 });
