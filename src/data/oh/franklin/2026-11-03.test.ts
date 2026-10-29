@@ -40,6 +40,35 @@ describe("Franklin County, 2026-11-03 ballot data", () => {
     ]);
   });
 
+  test("lists each race's candidates in the sample ballot's order", () => {
+    const ballot = buildBallot(candidates, issues);
+
+    expect(ballot.races.map((r) => r.candidates.map((c) => c.name))).toEqual([
+      ["Don Kissick and James L. Mills", "Vivek Ramaswamy and Robert A. McColley", "Amy Acton and David Pepper"],
+      ["John J. Kulewicz", "Keith Faber"],
+      ["Frank LaRose", "Annette Blackwell"],
+      ["Allison Russo", "Robert Sprague", "Tom Pruss"],
+      ["Seth Walsh", "Jay Edwards"],
+      ["Marilyn Zayas", "Daniel R. Hawkins"],
+      ["Colleen O'Donnell", "Jennifer Brunner"],
+      ["William B. Redpath", "Sherrod Brown", "Jon Husted", "Greg Levy"],
+      ["Joyce Beatty", "Cleophus Dulaney"],
+      ["Joseph Healy", "Latyna M. Humphrey"],
+      ["Dontavius Jarrells", "Joel A. Greff"],
+      ["Michael C. Mentel"],
+      ["Terri Jamison"],
+      ["Carl Aveni"],
+      ["Andy Miller"],
+      ["David Young"],
+      ["Chris Brown"],
+      ["Kelley Gabrielle Boller"],
+      ["Lasheyl N. Stroud"],
+      ["Chris Junga", "Kelly Green"],
+      ["Eric Terford", "Erica C. Crawley"],
+      ["Michael Stinziano"],
+    ]);
+  });
+
   test("lists no candidate twice", () => {
     const names = candidates.map((c) => c.name);
 

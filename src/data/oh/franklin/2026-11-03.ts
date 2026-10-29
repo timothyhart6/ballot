@@ -1,33 +1,33 @@
 import type { Candidate, Issue } from "../../../ballot.js";
 
 export const candidates: Candidate[] = [
-  { name: "Amy Acton and David Pepper", office: "Governor and Lieutenant Governor" },
   { name: "Don Kissick and James L. Mills", office: "Governor and Lieutenant Governor" },
   { name: "Vivek Ramaswamy and Robert A. McColley", office: "Governor and Lieutenant Governor" },
+  { name: "Amy Acton and David Pepper", office: "Governor and Lieutenant Governor" },
 
-  { name: "Keith Faber", office: "Attorney General" },
   { name: "John J. Kulewicz", office: "Attorney General" },
+  { name: "Keith Faber", office: "Attorney General" },
 
-  { name: "Annette Blackwell", office: "Auditor of State" },
   { name: "Frank LaRose", office: "Auditor of State" },
+  { name: "Annette Blackwell", office: "Auditor of State" },
 
-  { name: "Tom Pruss", office: "Secretary of State" },
   { name: "Allison Russo", office: "Secretary of State" },
   { name: "Robert Sprague", office: "Secretary of State" },
+  { name: "Tom Pruss", office: "Secretary of State" },
 
-  { name: "Jay Edwards", office: "Treasurer of State" },
   { name: "Seth Walsh", office: "Treasurer of State" },
+  { name: "Jay Edwards", office: "Treasurer of State" },
 
-  { name: "Daniel R. Hawkins", office: "Justice of the Supreme Court (Full term commencing 1-1-2027)" },
   { name: "Marilyn Zayas", office: "Justice of the Supreme Court (Full term commencing 1-1-2027)" },
+  { name: "Daniel R. Hawkins", office: "Justice of the Supreme Court (Full term commencing 1-1-2027)" },
 
-  { name: "Jennifer Brunner", office: "Justice of the Supreme Court (Full term commencing 1-2-2027)" },
   { name: "Colleen O'Donnell", office: "Justice of the Supreme Court (Full term commencing 1-2-2027)" },
+  { name: "Jennifer Brunner", office: "Justice of the Supreme Court (Full term commencing 1-2-2027)" },
 
+  { name: "William B. Redpath", office: "U.S. Senator (Unexpired term ending 1-3-2029)" },
   { name: "Sherrod Brown", office: "U.S. Senator (Unexpired term ending 1-3-2029)" },
   { name: "Jon Husted", office: "U.S. Senator (Unexpired term ending 1-3-2029)" },
   { name: "Greg Levy", office: "U.S. Senator (Unexpired term ending 1-3-2029)" },
-  { name: "William B. Redpath", office: "U.S. Senator (Unexpired term ending 1-3-2029)" },
 
   { name: "Joyce Beatty", office: "Representative to Congress (3rd District)" },
   { name: "Cleophus Dulaney", office: "Representative to Congress (3rd District)" },
@@ -35,8 +35,8 @@ export const candidates: Candidate[] = [
   { name: "Joseph Healy", office: "State Senator (15th District)" },
   { name: "Latyna M. Humphrey", office: "State Senator (15th District)" },
 
-  { name: "Joel A. Greff", office: "State Representative (1st District)" },
   { name: "Dontavius Jarrells", office: "State Representative (1st District)" },
+  { name: "Joel A. Greff", office: "State Representative (1st District)" },
 
   { name: "Michael C. Mentel", office: "Judge of the Court of Appeals (10th District) (Full term commencing 2-9-2027)" },
 
@@ -54,11 +54,11 @@ export const candidates: Candidate[] = [
 
   { name: "Lasheyl N. Stroud", office: "Judge of the Court of Common Pleas (Domestic Relations Division) (Full term commencing 1-3-2027)" },
 
-  { name: "Kelly Green", office: "Judge of the Court of Common Pleas (Probate Division) (Full term commencing 2-9-2027)" },
   { name: "Chris Junga", office: "Judge of the Court of Common Pleas (Probate Division) (Full term commencing 2-9-2027)" },
+  { name: "Kelly Green", office: "Judge of the Court of Common Pleas (Probate Division) (Full term commencing 2-9-2027)" },
 
-  { name: "Erica C. Crawley", office: "County Commissioner (Full term commencing 1-1-2027)" },
   { name: "Eric Terford", office: "County Commissioner (Full term commencing 1-1-2027)" },
+  { name: "Erica C. Crawley", office: "County Commissioner (Full term commencing 1-1-2027)" },
 
   { name: "Michael Stinziano", office: "County Auditor" },
 ];
