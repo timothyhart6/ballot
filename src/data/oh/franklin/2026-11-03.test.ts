@@ -17,4 +17,10 @@ describe("Franklin County, 2026-11-03 ballot data", () => {
 
     expect(new Set(names).size).toBe(names.length);
   });
+
+  test("lists no issue number twice", () => {
+    const numbers = issues.map((i) => i.number);
+
+    expect(new Set(numbers).size).toBe(numbers.length);
+  });
 });
