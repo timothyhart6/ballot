@@ -14,6 +14,10 @@ describe("groupByRace", () => {
       { office: "US Senator", candidates: [brown] },
     ]);
   });
+
+  test("returns no races when there are no candidates", () => {
+    expect(groupByRace([])).toEqual([]);
+  });
 });
 
 describe("buildBallot", () => {
