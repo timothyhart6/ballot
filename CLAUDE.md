@@ -139,6 +139,16 @@ Frontend principle, since Tim expects to redesign the page as he learns front en
 data, components, and styling separate. Components take typed data as input and never
 know where it came from; layout and sizing live in CSS, not component logic.
 
+## To do
+
+Smaller items deferred on purpose, kept here so they aren't forgotten:
+
+- **Write-in lines.** The ballot prints a write-in line under Governor and US Senator.
+  Not modeled yet; they aren't candidates.
+- **Party labels.** Left out of the model for now. When they return, use the ballot's
+  wording: Greg Levy is printed as "Other-party candidate," not "Independent" as in the
+  party data saved in commit `e937818`.
+
 ## Commands
 
 ```
