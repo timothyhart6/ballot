@@ -187,7 +187,8 @@ All coding goes through TDD, at Tim's pace. These rules are firm:
   the section's coverage with Tim: the main case, edge cases (empty input, duplicates,
   ordering), and anything the data could get wrong. Add tests for gaps, one at a time,
   under the same rules.
-- **Commit, merge, and push only when Tim asks.**
+- **Commit each completed cycle.** Once a test is green and any refactor is done, commit
+  it on the branch: one commit per test. Merge and push only when Tim asks.
 
 ## Conventions
 
