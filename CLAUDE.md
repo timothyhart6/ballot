@@ -69,27 +69,28 @@ Uneven, and the type model needs to reflect it:
 
 ## The ballot itself
 
-Determined by geocoding the author's registered voting address. That address is
-deliberately not recorded in this file — see `CLAUDE.local.md`, which is gitignored.
+The author's voting address and precinct are deliberately not recorded in this file —
+see `CLAUDE.local.md`, which is gitignored.
 
 - Franklin County — Columbus City Schools
 - US House **District 3**
 - Ohio Senate **District 15**
 - Ohio House **District 1**
 
-**These are not yet verified.** Two open questions: Ohio adopted a new congressional map
-in October 2025 that the Census layer may not reflect, and the Ohio House 1 result is
-suspect because reference material describes that district as covering Bexley, which is
-across town. The authoritative answer is the official sample ballot from the Franklin
-County Board of Elections. Treat the districts above as provisional until Tim confirms.
+**Confirmed** against the official sample ballot from the Franklin County Board of
+Elections (October 2026). The sample ballot PDF is not committed: it prints the precinct
+and ballot style, which count as personal information.
 
-Roughly 20 races: statewide executive offices, a US Senate seat, two Ohio Supreme Court
-seats, US House, both state legislative chambers, the 10th District Court of Appeals,
-several Common Pleas judgeships, two county offices, and Issue 3 (a statewide
-constitutional amendment on voter photo ID).
+22 races and 3 issues: statewide executive offices, two Ohio Supreme Court seats, a US
+Senate seat, US House, both state legislative chambers, two 10th District Court of Appeals
+seats, seven Common Pleas judgeships (four General, two Domestic Relations, one Probate),
+two county offices, Issue 3 (a statewide constitutional amendment on voter photo ID), and
+Issues 8 and 9 (competing Columbus charter amendments on City Council elections).
 
-Primary source for candidates and issues: the Franklin County Board of Elections
-certified lists at https://vote.franklincountyohio.gov/election-info/2026
+The sample ballot is the source of truth for what's on this ballot: which races, their
+order, and their wording. The Board's certified lists at
+https://vote.franklincountyohio.gov/election-info/2026 are a secondary source covering the
+whole county.
 
 ## Editorial stance
 
@@ -112,8 +113,7 @@ the MVP is still undecided.
    **Districts are deferred** to their own branch; races are still keyed by office string.
 2. **React + Vite** — render races and candidates on a plain page.
 3. **Layout and readability** — grouping, dropdowns, spacing.
-4. **Deploy** to static hosting, after the districts are confirmed against the official
-   sample ballot.
+4. **Deploy** to static hosting.
 5. **Pipeline** — replace hardcoded data with government CSVs converted to JSON at build
    time, starting with Franklin County. The aim is to scale to other counties.
 
