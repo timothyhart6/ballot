@@ -168,6 +168,27 @@ Do not write production code without a failing test that calls for it. Keep each
 small; one cycle is a good unit for explaining new TypeScript to Tim. "Green" means both
 `npm test` and `npm run typecheck` pass.
 
+### How we work through a cycle
+
+All coding goes through TDD, at Tim's pace. These rules are firm:
+
+- **One section of work per branch.** Tim and Claude agree on the section first, then
+  create a branch for it. Work outside that section waits for its own branch.
+- **One test at a time.** Write a single test, run it, and show Tim the test and the
+  failure output.
+- **Stop after the test.** Do not write any production code in the same turn as the
+  test. Wait for Tim to review the test and say to continue.
+- **Then make it pass and explain it.** Write the code, run `npm run check`, and walk
+  through the new lines. One cycle per turn; do not chain cycles.
+- **A test that passes immediately** (no production code needed) still gets shown and
+  still stops. Say that it passed and why, since a test that never failed hasn't proven
+  it can catch anything.
+- **Finish a branch only when its section is thoroughly tested.** Before merging, review
+  the section's coverage with Tim: the main case, edge cases (empty input, duplicates,
+  ordering), and anything the data could get wrong. Add tests for gaps, one at a time,
+  under the same rules.
+- **Commit, merge, and push only when Tim asks.**
+
 ## Conventions
 
 - Source in `src/`, compiled output in `dist/` (gitignored).
