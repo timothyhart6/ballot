@@ -108,6 +108,8 @@ the MVP is still undecided.
    before any React. Model races as belonging to districts, and a ballot as the set of
    districts a voter is in — not as a flat list of "my candidates" — so the per-voter
    lookup below plugs in later without a rewrite.
+   *Status:* `Candidate`, `Issue`, `groupByRace`, and `buildBallot` are done and tested.
+   **Districts are deferred** to their own branch; races are still keyed by office string.
 2. **React + Vite** — render races and candidates on a plain page.
 3. **Layout and readability** — grouping, dropdowns, spacing.
 4. **Deploy** to static hosting, after the districts are confirmed against the official
