@@ -28,6 +28,18 @@ describe("groupByRace", () => {
 
     expect(races.map((r) => r.office)).toEqual(["US Senator", "Attorney General"]);
   });
+
+  test("treats offices as the same race only when they match exactly", () => {
+    const brown: Candidate = { name: "Sherrod Brown", office: "US Senator" };
+    const husted: Candidate = { name: "Jon Husted", office: "U.S. Senator" };
+
+    const races = groupByRace([brown, husted]);
+
+    expect(races).toEqual([
+      { office: "US Senator", candidates: [brown] },
+      { office: "U.S. Senator", candidates: [husted] },
+    ]);
+  });
 });
 
 describe("buildBallot", () => {
