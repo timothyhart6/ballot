@@ -22,15 +22,29 @@ He is learning the language through this project, deliberately. That shapes how 
   data modeling. What's new is structural typing, runtime erasure, `null` vs `undefined`,
   and unions replacing inheritance.
 
-Concepts already covered: basic type annotations, `tsconfig.json` options, the fact that
-types are erased at compile time, and why ESM imports need a `.js` extension.
+Concepts already covered (build on these; don't re-explain from scratch):
+- Basic type annotations, `tsconfig.json` options, types erased at compile time, and why
+  ESM imports need a `.js` extension.
+- String literal unions as enum-like types (`"Democratic" | "Republican"`), and
+  `T | null` vs an optional `field?: T` — why a required `| null` forces an explicit answer.
+- Structural typing, and the excess property check on object literals.
+- `export` vs file-private, `import { x }`, and type-only imports (`import type`,
+  `type X` inside an import) being erased.
+- Top-level functions, return types after the parameter list, property shorthand
+  (`{ issues }`), and returning a typed object without `new`.
+- Arrow functions as lambdas; `array.map` (1:1 transform) vs the `Map` collection;
+  `Set` for de-duplication and `.size` vs `.length`; nested arrays (`string[][]`);
+  `array.join`; single vs double quotes (no `char` type).
+- `===` for strings (compares contents, like Java's `.equals`).
+- Vitest: `toEqual` (deep) vs `toBe` (`Object.is`), reading the expected/received diff,
+  and why Vitest misses type errors that `tsc` catches.
 
 ## Stack
 
 - **TypeScript on Node**, ESM (`"type": "module"`), `strict: true`, `tsx` for the dev loop.
 - **React + Vite** for the frontend, when we get there. Not yet added.
 - **No backend server and no database.** See the architecture note below.
-- Developed in IntelliJ IDEA Ultimate on Windows.
+- Developed in IntelliJ IDEA Ultimate, on more than one machine (macOS and Windows).
 
 ## Architecture
 
@@ -101,6 +115,21 @@ where sources conflict, the site says so rather than picking a winner.
 
 ## Roadmap
 
+### Current focus
+
+- **The 2026 ballot is seed data.** The site won't be ready for November 3, 2026, and
+  that's fine. Before the next election the data gets replaced; the logic stays.
+- **Only Tim's own ballot** until there's a working prototype. Other districts, other
+  voters, and the rest of the county come after that.
+- **Done:** every race, candidate, and issue on the ballot, matching the sample ballot's
+  order and wording (name and office only for candidates).
+- **Next: one candidate in depth.** Pick one candidate and fill in every possible field
+  (endorsements, campaign finance, social media, voting record), researching which public
+  APIs exist for each. The point is to measure how much of the data must be sourced by
+  hand before scaling to every candidate. Candidate not yet chosen; a judge (worst case
+  for available data) was suggested over a federal incumbent (best case). Verify any API
+  is actually live before relying on it; several civic-data APIs have shut down.
+
 **MVP:** a hosted static site listing every candidate on this ballot, easy to read.
 Candidate data is hardcoded for now. Which fields beyond name, party, and office make
 the MVP is still undecided.
@@ -149,6 +178,14 @@ Smaller items deferred on purpose, kept here so they aren't forgotten:
   wording: Greg Levy is printed as "Other-party candidate," not "Independent" as in the
   party data saved in commit `e937818`.
 
+## Setting up on a new machine
+
+1. Clone this repo and run `npm install`.
+2. Clone Tim's `claude-config` repo to `~/dev/projects/claude-config`. The TDD workflow
+   below is imported from there; without it, the workflow rules don't load.
+3. Copy `CLAUDE.local.md` over by hand. It's gitignored on purpose (personal info).
+4. Run `npm run check` to confirm everything passes.
+
 ## Commands
 
 ```
@@ -172,7 +209,7 @@ works. Do not report a change as verified on the basis of `npm run dev` alone.
 
 This project follows the shared TDD workflow, imported here:
 
-@~/.claude/tdd-workflow.md
+@~/dev/projects/claude-config/tdd-workflow.md
 
 In this project, "green" means both `npm test` and `npm run typecheck` pass;
 `npm run check` runs both.
